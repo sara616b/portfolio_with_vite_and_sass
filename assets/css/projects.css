@@ -1,0 +1,85 @@
+main {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(clamp(200px, 100%, 400px), 1fr)
+  );
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.project {
+  margin: 150px 0 0px 0;
+  padding: 20px;
+  background-color: white;
+  transition: transform 1s, opacity 1s;
+  z-index: 2;
+  animation: popupProjects ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  box-shadow: 4px 8px 15px #00000014;
+  color: black;
+}
+
+@keyframes popupProjects {
+  0% {
+    opacity: 0.5;
+    transform: translate(10%, 10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+.project .content {
+  transition: all 0.8s;
+}
+.project .content:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+h2 {
+  padding-top: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 50px;
+}
+h2 label {
+  font-size: 1.2rem;
+  font-weight: normal;
+  opacity: 0.8;
+}
+.project p {
+  line-height: 30px;
+  padding-bottom: 10px;
+}
+.project .content img,
+.image {
+  margin-top: -160px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 1px 1px 10px #0000001c;
+}
+
+#mountains {
+  z-index: 1;
+  margin-top: -200px;
+  height: 300px;
+  width: 100%;
+}
+.more {
+  color: gray;
+  font-size: 0.8rem;
+}
+.more:hover {
+  opacity: 0.8;
+}
+@media only screen and (min-width: 550px) {
+  main {
+    padding: 20px;
+    grid-gap: 20px;
+  }
+}
