@@ -327,28 +327,63 @@ function showProjects() {
 
   if (currentLanguage === "english") {
     projectsArray.forEach((project) => {
-      const clone = document.querySelector("template").cloneNode(true).content;
-      clone.querySelector(".project").id = project.id;
+      // const clone = document.querySelector("template").cloneNode(true).content;
+
+      const clone = document.createElement("div");
+      clone.classList.add("project");
+      const content = document.createElement("div");
+      content.classList.add("content");
+      clone.appendChild(content);
+      const imagediv = document.createElement("div");
+      imagediv.classList.add("image");
+      clone.querySelector(".content").appendChild(imagediv);
+      const header = document.createElement("h2");
+      header.innerHTML = "<label></label>";
+      const textp = document.createElement("p");
+      const more = document.createElement("span");
+      more.classList.add("more");
+      clone.querySelector(".content").appendChild(header);
+      clone.querySelector(".content").appendChild(textp);
+      clone.querySelector(".content").appendChild(more);
+
+      clone.id = project.id;
       clone.querySelector(".image").style.backgroundImage =
         "url(" + project.imgSrc + ")";
       clone.querySelector("h2").innerHTML += project.header;
       clone.querySelector("label").innerHTML = project.label + ": ";
       clone.querySelector("p").textContent = project.text;
       clone.querySelector(".more").innerHTML = "Click to read more!";
-      clone.querySelector(".project").addEventListener("click", openDetails);
+      clone.addEventListener("click", openDetails);
       document.querySelector("main").appendChild(clone);
     });
   } else if (currentLanguage === "danish") {
     projectsArrayDanish.forEach((project) => {
-      const clone = document.querySelector("template").cloneNode(true).content;
-      clone.querySelector(".project").id = project.id;
+      // const clone = document.querySelector("template").cloneNode(true).content;
+      const clone = document.createElement("div");
+      clone.classList.add("project");
+      const content = document.createElement("div");
+      content.classList.add("content");
+      clone.appendChild(content);
+      const imagediv = document.createElement("div");
+      imagediv.classList.add("image");
+      clone.querySelector(".content").appendChild(imagediv);
+      const header = document.createElement("h2");
+      header.innerHTML = "<label></label>";
+      const textp = document.createElement("p");
+      const more = document.createElement("span");
+      more.classList.add("more");
+      clone.querySelector(".content").appendChild(header);
+      clone.querySelector(".content").appendChild(textp);
+      clone.querySelector(".content").appendChild(more);
+
+      clone.id = project.id;
       clone.querySelector(".image").style.backgroundImage =
         "url(" + project.imgSrc + ")";
       clone.querySelector("h2").innerHTML += project.header;
       clone.querySelector("label").innerHTML = project.label + ": ";
       clone.querySelector("p").textContent = project.text;
       clone.querySelector(".more").innerHTML = "Klik for at læse mere!";
-      clone.querySelector(".project").addEventListener("click", openDetails);
+      clone.addEventListener("click", openDetails);
       document.querySelector("main").appendChild(clone);
     });
   }

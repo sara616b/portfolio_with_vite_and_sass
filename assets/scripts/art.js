@@ -170,7 +170,18 @@ function showArt() {
 
   if (currentLanguage === "english") {
     artArray.forEach((project) => {
-      const clone = document.querySelector("template").cloneNode(true).content;
+      const clone = document.createElement("div");
+      clone.classList.add("artwork");
+      const content = document.createElement("div");
+      content.classList.add("content");
+      clone.appendChild(content);
+      const imagediv = document.createElement("div");
+      imagediv.classList.add("image");
+      clone.querySelector(".content").appendChild(imagediv);
+      const header = document.createElement("h2");
+      clone.querySelector(".content").appendChild(header);
+
+      // const clone = document.querySelector("template").cloneNode(true).content;
       clone.querySelector(".image").style.backgroundImage =
         "url(" + project.imgSrc + ")";
       clone.querySelector("h2").innerHTML += project.header;
@@ -178,7 +189,18 @@ function showArt() {
     });
   } else if (currentLanguage === "danish") {
     artArrayDanish.forEach((project) => {
-      const clone = document.querySelector("template").cloneNode(true).content;
+      const clone = document.createElement("div");
+      clone.classList.add("artwork");
+      const content = document.createElement("div");
+      content.classList.add("content");
+      clone.appendChild(content);
+      const imagediv = document.createElement("div");
+      imagediv.classList.add("image");
+      clone.querySelector(".content").appendChild(imagediv);
+      const header = document.createElement("h2");
+      clone.querySelector(".content").appendChild(header);
+
+      // const clone = document.querySelector("template").cloneNode(true).content;
       clone.querySelector(".image").style.backgroundImage =
         "url(" + project.imgSrc + ")";
       clone.querySelector("h2").innerHTML += project.header;

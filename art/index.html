@@ -5,16 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
-    name="description"
-    content="Design portfolio for Sarah Isabella Frederiksen."
-  />
-  <meta
-    name="keywords"
-    content="Sarah Isabella Frederiksen, portfolio for multimedia design, content creation, frontend development"
-  />
-  <meta name="author" content="Sarah Isabella Frederiksen" />
+      name="description"
+      content="Design portfolio for Sarah Isabella Frederiksen."
+    />
+    <meta
+      name="keywords"
+      content="Sarah Isabella Frederiksen, portfolio for multimedia design, content creation, frontend development"
+    />
+    <meta name="author" content="Sarah Isabella Frederiksen" />
 
-    <title>Art | Personal art projects, drawings, illustrations, animations | Sarah Frederiksen</title>
+    <title>
+      Art | Personal art projects, drawings, illustrations, animations | Sarah
+      Frederiksen
+    </title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       rel="icon"
@@ -26,8 +29,8 @@
       href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/art.css">
+    <!-- <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/art.css"> -->
   </head>
   <body>
     <header>
@@ -166,8 +169,8 @@
                       stroke-width="5"
                     />
                   </g>
-                </svg>
-              </a><a class="danish" href="../?la=da">
+                </svg> </a
+              ><a class="danish" href="../?la=da">
                 <svg
                   data-name="Layer 1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -304,27 +307,41 @@
             <ul>
               <div id="burgermenu">☰</div>
               <div id="burgerhidden" class="hidden">
-                <a href="../projects/?la=en" class="english" id="projects-nav"></a>
+                <a
+                  href="../projects/?la=en"
+                  class="english"
+                  id="projects-nav"
+                ></a>
                 <a href="#?la=en" class="chosen english" id="art-nav"></a>
                 <a href="../about/?la=en" class="english" id="about-nav"></a>
-                <a class="sun english" href="../contact/?la=en"
-                id="contact-nav"></a>
-                <a href="../projects/?la=da" class="danish" id="projekter-nav"></a>
+                <a
+                  class="sun english"
+                  href="../contact/?la=en"
+                  id="contact-nav"
+                ></a>
+                <a
+                  href="../projects/?la=da"
+                  class="danish"
+                  id="projekter-nav"
+                ></a>
                 <a href="#?la=da" class="chosen danish" id="kunst-nav"></a>
                 <a href="../about/?la=da" class="danish" id="om-nav"></a>
-                <a class="sun danish" href="../contact/?la=da"
-                id="kontakt-nav"></a>
+                <a
+                  class="sun danish"
+                  href="../contact/?la=da"
+                  id="kontakt-nav"
+                ></a>
 
                 <button id="change-language" data-language="english">
                   Dansk
-                </button>              </div>
+                </button>
+              </div>
             </ul>
           </nav>
         </div>
       </div>
     </header>
-    <main>
-    </main>
+    <main></main>
     <svg
       id="mountains"
       data-name="Layer 1"
@@ -403,18 +420,12 @@
         </nav>
       </div>
     </footer>
-    <template>
-      <div class="artwork">
-        <div class="content">
-          <div
-            class="image"
-            style="background-image: url('')"
-          ></div>
-          <h2></h2>
-        </div>
-    </template>
-    
-    <script src="../assets/scripts/art.js"></script>
-    <script src="../assets/scripts/menu.js"></script>
   </body>
+
+  <script src="../assets/scripts/art.js"></script>
+  <script src="../assets/scripts/menu.js"></script>
+  <script type="module">
+    import "../sass/style.scss";
+    import "../sass/art.scss";
+  </script>
 </html>
