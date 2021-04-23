@@ -105,6 +105,8 @@ let artArrayDanish = [
 function start() {
   console.log("start");
 
+  gsap.registerPlugin(ScrollTrigger);
+
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
   const la = urlParams.get("la");
@@ -185,6 +187,18 @@ function showArt() {
       clone.querySelector(".image").style.backgroundImage =
         "url(" + project.imgSrc + ")";
       clone.querySelector("h2").innerHTML += project.header;
+
+      gsap.from(clone, {
+        xPercent: -10,
+        yPercent: 100,
+        opacity: 0,
+        duration: 1,
+        ease: "ease-in-out",
+        scrollTrigger: {
+          trigger: clone,
+          toggleActions: "restart none none reset",
+        },
+      });
       document.querySelector("main").appendChild(clone);
     });
   } else if (currentLanguage === "danish") {
@@ -204,6 +218,18 @@ function showArt() {
       clone.querySelector(".image").style.backgroundImage =
         "url(" + project.imgSrc + ")";
       clone.querySelector("h2").innerHTML += project.header;
+
+      gsap.from(clone, {
+        xPercent: -10,
+        yPercent: 100,
+        opacity: 0,
+        duration: 1,
+        ease: "ease-in-out",
+        scrollTrigger: {
+          trigger: clone,
+          toggleActions: "restart none none reset",
+        },
+      });
       document.querySelector("main").appendChild(clone);
     });
   }

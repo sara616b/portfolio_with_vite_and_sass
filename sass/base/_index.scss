@@ -1,1 +1,19 @@
-@forward "typography";
+@forward "body";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.hidetext {
+  display: none;
+  visibility: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+img {
+  width: 100%;
+}

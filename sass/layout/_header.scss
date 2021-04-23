@@ -1,35 +1,83 @@
-/* HEADER AND NAVIGATION */
+@use "./sass/abstracts/mixins";
+
 header {
-  box-shadow: 0 2px 10px #5a5a5a3b;
-  background-color: white;
+  // Burgermenu expands to menuline at 845px
+  @include mixins.minbreakpoint(845px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: none;
+    background-color: rgba(255, 255, 255, 0);
+    animation: fromleftHeader 1s ease-in-out 1;
+    box-shadow: none;
+  }
+  div {
+    @include mixins.minbreakpoint(845px) {
+      width: 100%;
+    }
+  }
+  .chosen {
+    opacity: 0.8;
+    text-decoration: underline;
+    color: var(--dark-color);
+
+    @include mixins.minbreakpoint(845px) {
+      text-decoration: none;
+      border-bottom: 3px solid rgba(0, 0, 0, 0.767);
+    }
+  }
+  .chosen:hover {
+    transform: translate(0);
+  }
 }
 
-header .chosen {
-  opacity: 0.8;
-  text-decoration: underline;
-  color: var(--dark-color);
-}
-header .chosen:hover {
-  transform: translate(0);
-}
 #burgermenu {
   font-size: 2rem;
   cursor: pointer;
   margin-top: -6px;
+  @include mixins.minbreakpoint(845px) {
+    display: none;
+  }
 }
 #burgerhidden {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
+#burgerhidden,
+#burgerhidden.hidden {
+  @include mixins.minbreakpoint(845px) {
+    order: 1;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 100px;
+    align-items: center;
+  }
+}
 #logo {
   display: flex;
   align-content: center;
-  transition: opacity 1s, transform 2s;
+  transition: all 1s;
   flex-grow: 1;
   padding-bottom: 5px;
   flex-basis: 60%;
   height: 100%;
+  @include mixins.minbreakpoint(845px) {
+    order: -1;
+    padding: 0;
+    align-self: center;
+  }
+  a {
+    width: 100%;
+    transition: all 1s;
+    @include mixins.minbreakpoint(845px) {
+      width: 35vw;
+      max-width: 400px;
+    }
+  }
 }
 #logo a {
   width: 100%;
@@ -40,45 +88,98 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   text-decoration: none;
-}
-nav ul {
-  flex-grow: 2;
-  flex-basis: 60%;
-  align-content: flex-end;
-  text-align: end;
-  padding: 0 10px;
-  justify-content: center;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
+  ul {
+    flex-grow: 2;
+    flex-basis: 60%;
+    align-content: flex-end;
+    text-align: end;
+    padding: 0 10px;
+    justify-content: center;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    a {
+      @include mixins.minbreakpoint(845px) {
+        background-color: rgba(255, 255, 255, 0);
+        margin: 0 10px;
+        transition: opacity 1s, transform 1s;
+      }
+    }
+    button {
+      color: var(--dark-color);
+      font-weight: lighter;
+      border: none;
+      cursor: pointer;
+      text-align: end;
+      @include mixins.minbreakpoint(845px) {
+        color: white;
+        background-color: var(--darkgreen);
+        border: none;
+        border-radius: 5px;
+        font-weight: lighter;
+        width: 57px;
+        font-size: 0.8rem;
+        padding: 3px 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        transition: opacity 1s, transform 1s;
+      }
+    }
+    a,
+    button {
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      font-weight: lighter;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.432);
+    }
+    button::before {
+      content: "Switch to: ";
+      opacity: 0.5;
+      @include mixins.minbreakpoint(845px) {
+        font-size: 0.5rem;
+      }
+    }
+    .sun {
+      @include mixins.minbreakpoint(845px) {
+        background-color: #ffff6d;
+        border-radius: 30px;
+        border: 10px solid #ffff6d;
+        box-shadow: 0 0 50px white;
+        font-weight: lighter;
+        animation: contact-kf 4s ease-in-out infinite;
+      }
+    }
+    .sun:hover {
+      @include mixins.minbreakpoint(845px) {
+        transform: translate(0, 0);
+        text-decoration: underline solid 1px;
+      }
+    }
+    .sun.chosen {
+      @include mixins.minbreakpoint(845px) {
+        border: solid rgba(255, 220, 106, 0.63) 2px;
+      }
+    }
+  }
+  a:hover,
+  ul button:hover {
+    @include mixins.minbreakpoint(845px) {
+      opacity: 0.8;
+      transform: translate(0, -10px);
+    }
+  }
+  #change-language {
+    @include mixins.minbreakpoint(845px) {
+      color: white;
+    }
+  }
 }
 
-nav ul a,
-nav ul button {
-  padding: 10px;
-  text-decoration: none;
-  color: black;
-  /* font-family: "Alegreya", serif; */
-  font-weight: lighter;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.432);
-}
 #logo:hover line {
   transition: transform 2s;
   transform: scale(1.001);
   transform-origin: center;
 }
-nav ul button {
-  color: var(--dark-color);
-  font-weight: lighter;
-  border: none;
-  cursor: pointer;
-  text-align: end;
-}
-nav ul button::before {
-  content: "Switch to: ";
-  opacity: 0.5;
-}
-
 /* nav content */
 #projects-nav::before {
   content: "Work";
@@ -104,115 +205,24 @@ nav ul button::before {
 #kontakt-nav::before {
   content: "Kontakt";
 }
-
-@media only screen and (min-width: 845px) {
-  /************BUGERMENU BLIVER NORMAL MENU*****/
-  header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: none;
-    background-color: rgba(255, 255, 255, 0);
-    animation: fromleftHeader 1s ease-in-out 1;
-    box-shadow: none;
+@keyframes fromleftHeader {
+  0% {
+    opacity: 0.5;
+    transform: translate(-10%, 0%);
   }
-
-  @keyframes fromleftHeader {
-    0% {
-      opacity: 0.5;
-      transform: translate(-10%, 0%);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
-  }
-  header div {
-    width: 100%;
-  }
-  #burgerhidden,
-  #burgerhidden.hidden {
-    order: 1;
-    display: flex !important;
-    flex-direction: row;
-    justify-content: flex-end;
-    height: 100px;
-    align-items: center;
-  }
-
-  #burgermenu {
-    display: none;
-  }
-
-  #logo {
-    order: -1;
-    padding: 0;
-    align-self: center;
-  }
-  #logo a {
-    width: 35vw;
-    max-width: 400px;
-  }
-  nav ul a {
-    background-color: rgba(255, 255, 255, 0);
-    margin: 0 10px;
-  }
-  header .chosen {
-    text-decoration: none;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.767);
-  }
-  nav ul .sun {
-    background-color: #ffff6d;
-    border-radius: 30px;
-    border: 10px solid #ffff6d;
-    box-shadow: 0 0 50px white;
-    font-weight: lighter;
-    animation: contact-kf 4s ease-in-out infinite;
-  }
-  nav ul .sun:hover {
+  100% {
+    opacity: 1;
     transform: translate(0, 0);
-    text-decoration: underline solid 1px;
   }
-  nav ul .sun.chosen {
-    border: solid rgba(255, 220, 106, 0.63) 2px;
+}
+@keyframes contact-kf {
+  0% {
+    transform: scale(1);
   }
-
-  nav ul button {
-    color: white;
-    background-color: var(--darkgreen);
-    border: none;
-    border-radius: 5px;
-    font-weight: lighter;
-    width: 57px;
-    font-size: 0.8rem;
-    padding: 3px 10px;
-    font-family: Arial, Helvetica, sans-serif;
+  50% {
+    transform: scale(1.15);
   }
-
-  nav ul button::before {
-    font-size: 0.5rem;
-  }
-  header nav a,
-  nav ul button {
-    transition: opacity 1s, transform 1s;
-  }
-  header nav a:hover,
-  nav ul button:hover {
-    opacity: 0.8;
-    transform: translate(0, -10px);
-  }
-
-  @keyframes contact-kf {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.15);
-    }
-    0% {
-      transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
   }
 }

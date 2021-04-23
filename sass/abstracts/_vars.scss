@@ -1,1 +1,19 @@
-$font: sanserif;
+:root {
+  --light-background: rgb(235 251 242);
+  --lightteal: rgb(135 199 174);
+  --lightgreen: #81bd90;
+  --mediumgreen: rgb(92 167 144);
+  --darkgreen: rgb(54 119 93);
+  --dark-color: rgb(34, 66, 53);
+  font-family: Arial, Helvetica, sans-serif;
+  --sky-blue: #ddf2f3;
+  --dark-gray: rgb(49, 49, 49);
+}
+
+// Breakpoints
+$breakpoints: (
+  small: 480px,
+  medium: 600px,
+  large: 800px,
+  wide: 1200px,
+);

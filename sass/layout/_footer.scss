@@ -1,3 +1,5 @@
+@use "../components/somebuttons";
+
 footer {
   background-color: var(--dark-color);
   padding: 20px;
@@ -10,32 +12,20 @@ footer {
     var(--dark-color) 40%,
     rgb(51 94 77) 100%
   );
-}
-footer nav {
-  height: 150px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-#logo:hover {
-  opacity: 0.8;
-  transform: scale(1.02);
-}
 
-footer nav a {
-  padding: 10px;
-  transition: opacity 0.5s, transform 0.5s;
-}
-footer nav a:hover {
-  transform-origin: left;
-  opacity: 0.8;
-  transform: translate(0px, -10px);
-}
-/* SOME */
-.some a svg,
-.some a svg path,
-.some a svg polygon {
-  width: 100px;
-  height: 100px;
-  fill: white;
+  nav {
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    a {
+      padding: 10px;
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    a:hover {
+      transform-origin: left;
+      opacity: 0.8;
+      transform: translate(0px, -10px);
+    }
+  }
 }
