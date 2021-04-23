@@ -3,3 +3,4 @@ assets/docs/
 .vscode/
 dist/
 node_modules/
+public/
