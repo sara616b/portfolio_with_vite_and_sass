@@ -36,6 +36,7 @@
       sizes="any"
       type="image/svg+xml"
     />
+
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -397,21 +398,58 @@
         <div class="content english">
           <p>Hi! My name is</p>
           <h1>Sarah Frederiksen.</h1>
-          <p>I tell stories by creating beautiful designs with a standpoint.</p>
+          <p>
+            I want to solve problems by designing and coding digital products.
+          </p>
           <p id="titles">Frontend Development | Content Creation | UX/UI</p>
         </div>
         <div class="content danish">
           <p>Hej! Mit navn er</p>
           <h1>Sarah Frederiksen.</h1>
           <p>
-            Jeg fortæller historier ved at producere smukke designs med en
-            holdning.
+            Jeg vil løse problemer ved at designe og kode digitale produkter.
           </p>
           <p id="titles">Frontendudvikling | Indholdsproduktion | UX/UI</p>
         </div>
       </div>
       <div class="project">
-        <div id="game-proj" class="content">
+        <div id="ihs-proj" class="content">
+          <img src="assets/images/ihs.png" alt="screenshot of ihs design" />
+          <div class="english text">
+            <h2><label>WEB:</label> Idrætshøjskolen</h2>
+            <p>
+              In this school project we collaborated with Idrætshøjskolen
+              Sønderborg to design and develop a site for them. I primarily
+              functioned as the coder, but contributed to each process of this
+              teamwork.
+            </p>
+          </div>
+          <div class="danish text">
+            <h2><label>WEB:</label> Idrætshøjskolen</h2>
+            <p>
+              I dette skoleprojekt samarbejdede vi med Idrætshøjskolen
+              Sønderborg. Vi designede og koded en webside til dem. Min rolle
+              var primært koder, men jeg var inde over hele processen i
+              gruppearbejdet.
+            </p>
+          </div>
+        </div>
+        <svg
+          id="Layer_1"
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1366 768"
+          preserveAspectRatio="none"
+          alt="mountain"
+        >
+          <polygon
+            points="1394 788 1267 590 1208 639 1026 467 907 540 717 443 690 516 658 500 622 548 440 257 384 316 232 189 148 408 -8 87 -15 925 1399 850 1394 788"
+            fill="var(--mediumgreen)"
+          />
+        </svg>
+      </div>
+      <div class="project" id="project_two">
+        <div id="game-proj" class="content parallax" data-depth="0.10">
           <img
             src="assets/images/stay-inside-game.png"
             alt="screenshot of the game stay inside"
@@ -434,20 +472,22 @@
           </div>
         </div>
         <svg
-          id="Layer_1"
+          id="mountains-intro"
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1366 768"
           preserveAspectRatio="none"
           alt="mountain"
+          class="parallax"
+          data-depth="1"
         >
           <polygon
-            points="1394 788 1267 590 1208 639 1026 467 907 540 717 443 690 516 658 500 622 548 440 257 384 316 232 189 148 408 -8 87 -15 925 1399 850 1394 788"
-            fill="var(--mediumgreen)"
+            points="-11 757 77 623 157 675 381 406 428 453 438 432 556 561 692 424 712 439 858 278 981 370 1247 127 1394 266 1401 816 -16 809 -11 757"
+            fill="var(--darkgreen)"
           />
         </svg>
       </div>
-      <div class="project" id="project_two">
+      <div class="project" id="project_three">
         <div id="shirt-proj" class="content">
           <img src="assets/images/shirt.png" alt="screenshot of shirt.it" />
           <div class="english text">
@@ -468,42 +508,6 @@
               fokus på animation med CSS og GSAP. Min rolle i gruppen var
               primært at få den rette funktionalitet til selve konfiguratoren
               (fx. tilføje tekst, farve, osv.) og animationerne på info-siden.
-            </p>
-          </div>
-        </div>
-        <svg
-          id="mountains-intro"
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1366 768"
-          preserveAspectRatio="none"
-          alt="mountain"
-        >
-          <polygon
-            points="-11 757 77 623 157 675 381 406 428 453 438 432 556 561 692 424 712 439 858 278 981 370 1247 127 1394 266 1401 816 -16 809 -11 757"
-            fill="var(--darkgreen)"
-          />
-        </svg>
-      </div>
-      <div class="project" id="project_three">
-        <div id="ihs-proj" class="content">
-          <img src="assets/images/ihs.png" alt="screenshot of ihs design" />
-          <div class="english text">
-            <h2><label>WEB:</label> Idrætshøjskolen</h2>
-            <p>
-              In this school project we collaborated with Idrætshøjskolen
-              Sønderborg to design and develop a site for them. I primarily
-              functioned as the coder, but contributed to each process of this
-              teamwork.
-            </p>
-          </div>
-          <div class="danish text">
-            <h2><label>WEB:</label> Idrætshøjskolen</h2>
-            <p>
-              I dette skoleprojekt samarbejdede vi med Idrætshøjskolen
-              Sønderborg. Vi designede og koded en webside til dem. Min rolle
-              var primært koder, men jeg var inde over hele processen i
-              gruppearbejdet.
             </p>
           </div>
         </div>
@@ -607,7 +611,9 @@
       import "./sass/style.scss";
       import "./sass/frontpage.scss";
 
-      gsap.registerPlugin(ScrollTrigger);
+      window.onload = () => {
+        gsap.registerPlugin(ScrollTrigger);
+      };
 
       document.querySelectorAll(".project").forEach((proj) => {
         gsap.from(proj.querySelector(".content"), {
@@ -619,6 +625,16 @@
           scrollTrigger: {
             trigger: proj,
             toggleActions: "restart none none reset",
+          },
+        });
+      });
+
+      document.querySelectorAll(".project svg").forEach((mountain) => {
+        gsap.from(mountain, {
+          height: 80,
+          scrollTrigger: {
+            trigger: mountain,
+            scrub: true,
           },
         });
       });

@@ -357,7 +357,7 @@ function showProjects() {
       clone.querySelector(".more").innerHTML = "Click to read more!";
       clone.addEventListener("click", openDetails);
 
-      gsap.from(clone.querySelector(".content"), {
+      gsap.from(clone, {
         xPercent: -10,
         yPercent: 100,
         opacity: 0,

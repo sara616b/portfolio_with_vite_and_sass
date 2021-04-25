@@ -1,7 +1,7 @@
 @use "/sass/abstracts/mixins";
 
 main {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .intro {
   display: flex;
@@ -127,6 +127,7 @@ main {
     p {
       line-height: 25px;
       margin-bottom: -40px;
+      padding-bottom: 30px;
     }
     .text {
       padding: 0 20px;
@@ -152,8 +153,9 @@ main {
     top: 0;
     left: 0;
     width: 100%;
+    max-height: 200px;
     @include mixins.minbreakpoint(800px) {
-      max-height: 200px;
+      max-height: 300px;
     }
   }
 }
@@ -195,54 +197,71 @@ h2 {
   }
 }
 /* BUTTONS */
-.buttons {
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  display: flex;
-  padding: 10px;
+#button-container {
   background-color: var(--dark-color);
-  max-width: 1200px;
-  margin: 0 auto;
-  a {
-    word-wrap: break-word;
+  width: 100%;
+  .buttons {
+    width: 100%;
+    height: 100%;
     text-decoration: none;
-    color: inherit;
-    font-weight: bold;
-    width: 50%;
-    line-height: 30px;
-    padding: 30px;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    color: black;
-    background-color: var(--lightgreen);
-    margin: 30px 10px;
-    border-radius: 20px;
-    transition: width 1.5s, opacity 1s;
-    text-transform: uppercase;
-  }
-  a:nth-of-type(odd) {
-    background-color: var(--lightteal);
-  }
-  a:hover {
-    width: 110%;
-    opacity: 0.8;
-    @include mixins.minbreakpoint(800px) {
-      width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: var(--dark-color);
+    max-width: 1200px;
+    margin: 0 auto;
+    @include mixins.minbreakpoint(600px) {
+      flex-direction: row;
+    }
+    a {
+      word-wrap: break-word;
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+      width: 95%;
+      @include mixins.minbreakpoint(600px) {
+        width: 50%;
+        margin: 30px 10px;
+      }
+      margin: 30px 10px 0 10px;
+      line-height: 30px;
+      padding: 30px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      color: black;
+      background-color: var(--lightgreen);
+      border-radius: 20px;
+      transition: width 1.5s, opacity 1s;
+      text-transform: uppercase;
+    }
+    a:nth-of-type(odd) {
+      background-color: var(--lightteal);
+    }
+    a:hover {
+      width: 110%;
       opacity: 0.8;
+      @include mixins.minbreakpoint(800px) {
+        width: 100%;
+        opacity: 0.8;
+      }
     }
   }
 }
-#button-container {
-  background-color: var(--dark-color);
-}
 /* ANIMATE CLOUDS */
-#cloud-one {
-  animation: cloud-left 1s ease-out 1;
-}
-#cloud-two {
-  animation: cloud-left 4s ease-out 1;
+#cloud-svg {
+  #cloud-one {
+    animation: cloud-left 1s ease-out 1;
+  }
+  #cloud-two {
+    animation: cloud-left 4s ease-out 1;
+  }
+  #cloud-three {
+    animation: cloud-right 1s ease-out 1;
+  }
+  #cloud-four {
+    animation: cloud-right 2s ease-out 1;
+  }
 }
 @keyframes cloud-left {
   0% {
@@ -251,12 +270,6 @@ h2 {
   100% {
     transform: translateX(0);
   }
-}
-#cloud-three {
-  animation: cloud-right 1s ease-out 1;
-}
-#cloud-four {
-  animation: cloud-right 2s ease-out 1;
 }
 @keyframes cloud-right {
   0% {
